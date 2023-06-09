@@ -75,4 +75,41 @@ class ItemRepositoryTest {
             System.out.println("결과 : " + e.toString());
         }
     }
+    @Test
+    @DisplayName("가격 범위로 상품 조회 테스트")
+    public void findByPriceBetweenTest() {
+        this.createItemTest();
+        List<Item> itemList = itemRepository.findByPriceBetween(10015, 10075);
+        for(Item e : itemList) {
+            System.out.println("결과 : " + e.toString());
+        }
+    }
+    @Test
+    @DisplayName("상품 이름에 대한 부분 문자열 검색 테스트")
+    public void findByItemNmContainingTest() {
+        this.createItemTest();
+        List<Item> itemList = itemRepository.findByItemNmContaining("상품6");
+        for(Item e : itemList) {
+            System.out.println("결과 : " + e.toString());
+        }
+    }
+    @Test
+    @DisplayName("@Query를 이용한 상품 조회 테스트")
+    public void findByItemDetailTest() {
+        this.createItemTest();
+        List<Item> itemList = itemRepository.findByItemDetail("설명6");
+        for(Item e : itemList) {
+            System.out.println("결과 : " + e.toString());
+        }
+    }
+    @Test
+    @DisplayName("nativeQuery 속성을 이용한 상품 조회 테스트")
+    public void findByItemDetailByNative() {
+        this.createItemTest();
+        List<Item> itemList = itemRepository.findByItemDetailByNative("설명6");
+        for(Item e : itemList) {
+            System.out.println("결과 : " + e.toString());
+        }
+    }
+
 }
