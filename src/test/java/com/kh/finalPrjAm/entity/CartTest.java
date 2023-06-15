@@ -1,5 +1,6 @@
 package com.kh.finalPrjAm.entity;
 
+import com.kh.finalPrjAm.constant.Authority;
 import com.kh.finalPrjAm.repository.CartRepository;
 import com.kh.finalPrjAm.repository.MemberRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +46,6 @@ class CartTest {
     public void findCartAndMemberTest() {
         Member member = createMemberInfo();
         memberRepository.save(member);
-
         Cart cart = new Cart();
         cart.setMember(member);
         cart.setCartName("테스트용 장바구니");
